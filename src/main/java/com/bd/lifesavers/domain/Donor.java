@@ -5,19 +5,27 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
-//@Entity
+@Entity
 public class Donor {
-//	@Id
-//	@GeneratedValue
+	@Id
+	@GeneratedValue
 	private long id;
 	
 	private String firstName;
 	private String lastName;
+	@OneToOne
+	@JoinColumn(name="Address")
 	private Address address;
 	private String bloodType;
 	private Date registrationDate;
+	@OneToOne
+	@JoinColumn(name = "Eligible")
 	private Eligibility eligible;
+	
+	
 	public long getId() {
 		return id;
 	}
@@ -60,6 +68,7 @@ public class Donor {
 	public void setEligible(Eligibility eligible) {
 		this.eligible = eligible;
 	}
+	
 	
 
 }

@@ -5,17 +5,24 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
-//@Entity
+@Entity
 public class Donation {
-//	@Id
-//	@GeneratedValue
+	@Id
+	@GeneratedValue
 //	
 	private long id;
-	
+	@OneToOne
+	@JoinColumn(name = "Donor")
 	private Donor donor;
+	@OneToOne
+	@JoinColumn(name = "Receiver")
 	private Donor receiver;
 	private Date date;
+	private boolean donationConfirmed;
 	public long getId() {
 		return id;
 	}
@@ -39,6 +46,12 @@ public class Donation {
 	}
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	public boolean isDonationConfirmed() {
+		return donationConfirmed;
+	}
+	public void setDonationConfirmed(boolean donationConfirmed) {
+		this.donationConfirmed = donationConfirmed;
 	}
 	
 
