@@ -2,16 +2,17 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-
+<jsp:useBean id="now" class="java.util.Date" scope="request" />
+<%@ page import="java.io.*,java.util.*, javax.servlet.*" %>
 <html>
 <head>
 <spring:url value="/resources/css/style.css" var="stylecss" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-	<link href="${stylecss}" rel="stylesheet" />
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link href="${stylecss}" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <title>Register</title>
 </head>
 <body>
@@ -25,7 +26,8 @@
 		</div>
 	</section>
 	<section class="container">
-		<form:form modelAttribute="donor" action="register" class="form-horizontal" method = "POST">
+		<form:form modelAttribute="donor" action="register"
+			class="form-horizontal" method="POST">
 			<fieldset>
 				<legend>Add new member</legend>
 
@@ -39,7 +41,18 @@
 
 					</div>
 				</div>
-
+				<div>
+					<form:input id="eligible" path="eligible.eligible" type="hidden"
+						value="false" />
+				</div>
+				<%
+					Date date = new Date();
+				%>
+				<div>
+				
+					<form:input id="eligible" path="eligible.donationDate" type="hidden"
+						value="${now}" />
+				</div>
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="lastName">Last
 						Name</label>
@@ -51,14 +64,15 @@
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="lastName">Blood Group</label>
+					<label class="control-label col-lg-2" for="lastName">Blood
+						Group</label>
 					<div class="col-lg-10">
-					<form:select path="bloodGroup">
-						<form:option value="" label="Select Blood Type" />
-						<form:options path="${availableOptions}" />
-					</form:select>
+						<form:select path="bloodGroup">
+							<form:option value="" label="Select Blood Type" />
+							<form:options path="${availableOptions}" />
+						</form:select>
 					</div>
-					
+
 				</div>
 
 				<div class="form-group">
@@ -76,8 +90,8 @@
 					<label class="control-label col-lg-2" for="username">username</label>
 					<div class="col-lg-10">
 						<div class="form:input-prepend">
-							<form:input id="username" path="username"
-								type="text" class="form:input-large" />
+							<form:input id="username" path="username" type="text"
+								class="form:input-large" />
 
 						</div>
 					</div>
@@ -86,17 +100,19 @@
 					<label class="control-label col-lg-2" for="password">Password</label>
 					<div class="col-lg-10">
 						<div class="form:input-prepend">
-							<form:input id="password" path="password"
-								type="password" class="form:input-large" />
+							<form:input id="password" path="password" type="password"
+								class="form:input-large" />
 
 						</div>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-lg-2" for="password">Confirm Password</label>
+					<label class="control-label col-lg-2" for="password">Confirm
+						Password</label>
 					<div class="col-lg-10">
 						<div class="form:input-prepend">
-							<form:input id="confirmPassword" path = "" type="password" class="form:input-large" />
+							<form:input id="confirmPassword" path="" type="password"
+								class="form:input-large" />
 
 						</div>
 					</div>
@@ -105,8 +121,8 @@
 					<label class="control-label col-lg-2" for="email">Email</label>
 					<div class="col-lg-10">
 						<div class="form:input-prepend">
-							<form:input id="email" path="email"
-								type="text" class="form:input-large" />
+							<form:input id="email" path="email" type="text"
+								class="form:input-large" />
 
 						</div>
 					</div>
@@ -152,21 +168,21 @@
 			</fieldset>
 		</form:form>
 	</section>
-	  <script>
-  $( function() {
-    $( "#registrationDate" ).datepicker();
-  } );
-  </script>
-   <script type="text/javascript">
-    function Validate() {
-        var password = document.getElementById("password").value;
-        var confirmPassword = document.getElementById("confirmPassword").value;
-        if (password != confirmPassword) {
-            alert("Passwords do not match.");
-            return false;
-        }
-        return true;
-    }
-</script>
+	<script>
+		$(function() {
+			$("#registrationDate").datepicker();
+		});
+	</script>
+	<script type="text/javascript">
+		function Validate() {
+			var password = document.getElementById("password").value;
+			var confirmPassword = document.getElementById("confirmPassword").value;
+			if (password != confirmPassword) {
+				alert("Passwords do not match.");
+				return false;
+			}
+			return true;
+		}
+	</script>
 </body>
 </html>
