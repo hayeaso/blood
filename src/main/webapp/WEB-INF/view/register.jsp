@@ -132,10 +132,10 @@
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="zip">
-						Zip</label>
+					<label class="control-label col-lg-2 col-lg-2" for="state">
+						State</label>
 					<div class="col-lg-10">
-						<form:input id="zip" path="address.zip" type="text"
+						<form:input id="state" path="address.state" type="text"
 							class="form:input-large" />
 
 					</div>
