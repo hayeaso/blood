@@ -3,7 +3,7 @@ package com.bd.lifesavers.domain;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Embedded;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -16,6 +16,7 @@ import javax.persistence.OneToOne;
 public class Donor {
 	@Id
 	@GeneratedValue
+	@Column(name="donor_Id")
 	private long id;
 	
 	private String firstName;
