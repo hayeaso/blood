@@ -3,6 +3,7 @@ package com.bd.lifesavers.domain;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -19,6 +20,7 @@ public class Donor {
 	
 	private String firstName;
 	private String lastName;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="Address")
 	private Address address;
