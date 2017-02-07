@@ -63,8 +63,10 @@
 							<td><c:out value="${donor.username}" /></td>
 							<td><c:out value="${donor.eligible.eligible}" /></td>
 							<td><c:out value="${donor.bloodGroup}" /></td>							
-							<td><a class="btn btn-danger" href="<c:url value='/remove/${donor.id}' />">Delete
-							</a></td>
+							<td>
+							<a class="btn btn-danger" href="<c:url value='/remove/${donor.id}' />">Delete</a>
+							<a class="btn btn-primary" href="<c:url value='/profile/${donor.id}' />">Profile</a>
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
