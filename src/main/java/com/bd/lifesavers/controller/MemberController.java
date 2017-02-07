@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -78,6 +79,27 @@ public class MemberController {
 			return "showDetails";
 		}
 		return "login";
+	}
+	@RequestMapping(value= "/profile/{id}", method = RequestMethod.GET)
+	public String myProfile(@ModelAttribute("donor") Donor donor, @PathVariable("id") long id, Model model){
+		
+		Donor one = donorService.getOneDonor(id);
+		
+		model.addAttribute("donor",one );
+		model.addAttribute("id",id );
+		return "editprofile";
+		
+	}
+	@RequestMapping(value= "/profile", method = RequestMethod.POST)
+	public String afterEdit(@ModelAttribute("donor") Donor donor, BindingResult bindingresult, Model model ){
+		long donorId = donor.getId();
+		System.out.println(donor.getId());
+		donorService.updateDonor(donor);
+		
+		
+		
+		return "admin";
+		
 	}
 
 }

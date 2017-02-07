@@ -36,5 +36,14 @@ public class DonorServiceImpl implements IDonorService {
 		donorrepo.delete(id);
 		
 	}
+	@Override
+	public void updateDonor(Donor donor) {
+		donorrepo.save(donor);
+	}
+	@Override
+	public Donor getOneDonor(long id) {
+		
+		return donorrepo.findOne(id);
+	}
 
 }

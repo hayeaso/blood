@@ -17,6 +17,9 @@ public interface IDonorService {
 
 	public List<Donor> getDonors();
 	
+	public Donor getOneDonor(long id);
+	
 	public void remove(long id);
+	public void updateDonor(Donor donor);
 
 }
