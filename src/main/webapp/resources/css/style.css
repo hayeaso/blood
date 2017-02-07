@@ -16,3 +16,10 @@
 #ui-datepicker-div{
 	background-color: green;
 }
+#search {
+	text-decoration: none;
+}
+
+#map {
+	height: 70%;
+}
