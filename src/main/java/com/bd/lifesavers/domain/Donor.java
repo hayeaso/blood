@@ -27,7 +27,7 @@ public class Donor {
 	private Address address;
 	
 	private Date registrationDate;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "Eligible")
 	private Eligibility eligible;
 	@Enumerated(EnumType.STRING)
