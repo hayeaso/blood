@@ -67,7 +67,7 @@ function getData() {
     document.getElementsByTagName('head')[0].appendChild(script);
 
     //AFTER LOADING JSON FILE, GETTING DATA FROM IT
-    window.eqfeed_callback = function (result) {
+    /*window.eqfeed_callback = function (result) {
 
         for (var i = 0; i < result.donors.length; i++) {
             //GETTING USER DATA LIKE name,age,addres...              
@@ -75,6 +75,22 @@ function getData() {
             address = result.donors[i].address;
             helper(name, address);
         }
+    }*/
+    
+    getdonors = function (result) {
+    	jQuery.each(result, function(i, donor) {
+			var name=donor.firstName;
+			var adress = donor.adress.street+","+donor.adress.cityt+","+donor.adress.state;
+			alert(adress);
+			 helper(name, address);
+
+		});
+        /*for (var i = 0; i < result.donors.length; i++) {
+            //GETTING USER DATA LIKE name,age,addres...              
+            var name = result.donors[i].firstName;
+            address = result.donors[i].address;
+            helper(name, address);
+        }*/
     }
 }
 

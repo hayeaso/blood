@@ -1,5 +1,7 @@
 package com.bd.lifesavers.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bd.lifesavers.domain.Donor;
@@ -20,6 +23,19 @@ public class MemberController {
 	
 	@Autowired
 	IDonorService donorService;
+	
+	
+	@RequestMapping(value = "/members",method = RequestMethod.GET)
+	public @ResponseBody List<Donor> message(){
+		System.out.println("in get");
+		List <Donor> donors=donorService.getDonors();
+		for (Donor donor : donors) {
+			System.out.println(donor.getAddress());
+			
+		}
+		return donors;
+		}
+	
 	
 	@RequestMapping("/")
 	public String welcome(){

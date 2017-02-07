@@ -8,6 +8,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Address")
 public class Address {
+	@Override
+	public String toString() {
+		return street + "," + city + "," + state;
+	}
 	@Id
 	@GeneratedValue
 	private Long id;

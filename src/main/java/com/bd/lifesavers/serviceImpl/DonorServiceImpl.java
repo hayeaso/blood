@@ -1,5 +1,7 @@
 package com.bd.lifesavers.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +25,11 @@ public class DonorServiceImpl implements IDonorService {
 		
 		String res =donorrepo.checkLogin(username);
 		return res;
+	}
+	@Override
+	public List<Donor> getDonors() {
+		
+		return (List<Donor>) donorrepo.findAll();
 	}
 
 }
