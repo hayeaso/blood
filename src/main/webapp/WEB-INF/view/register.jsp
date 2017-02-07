@@ -16,158 +16,152 @@
 <title>Register</title>
 </head>
 <body>
-	<section>
-		<div class="jumbotron">
-			<div class="container">
-				<h1>Register Here</h1>
-				<p>Add a New Member
-				<p>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">Register to <b>Lifesavers</b></h4> or go back to our <a href="/">main site</a>.
+			</div>
+			
+			<div class="modal-body">
+				<div class="row">
+					<div class="well">
+						<form:form modelAttribute="donor" class="form-horizontal" action="register" method="POST">
+							<div class="form-group">
+								<div class="col-lg-4">
+									<label class="control-label" for="firstName">First Name </label>
+								</div>
+								<div class="col-lg-8">
+									<form:input id="firstName" path="firstName" placeholder="Please enter First Name" type="text" class="form-control" value=""/>
+								<span class="help-block"></span>
+								</div>								
+							</div>
+							
+							<div class="form-group">
+								<div class="col-lg-4">
+									<label class="control-label" for="lastName">Last Name</label>
+								</div>
+								<div class="col-lg-8">
+									<form:input id="lastName" path="lastName" placeholder="Please enter Last Name" type="text" class="form-control" value=""/>
+								<span class="help-block"></span>
+								</div>								
+							</div>
+							
+							<div class="form-group">
+								<div class="col-lg-4">
+									<label class="control-label" for="Blood Group">Blood Group</label>
+								</div>
+								<div class="col-lg-8">
+									<form:select path="bloodGroup" class="form-control">
+										<form:option value="" label="Select Blood Type" />
+										<form:options path="${availableOptions}" />
+									</form:select>
+								<span class="help-block"></span>
+								</div>								
+							</div>
+							
+							<div class="form-group">
+								<div class="col-lg-4">
+									<label class="control-label" for="registrationDate">Registration Date</label>
+								</div>
+								<div class="col-lg-8">
+									<form:input id="registrationDate" path="registrationDate" placeholder="Please enter Registration Date" type="text" class="form-control hasDatepicker" value=""/>
+								<span class="help-block"></span>
+								</div>								
+							</div>
+							
+							<div>
+								<form:input id="eligible" path="eligible.eligible" type="hidden"
+									value="false" />
+							</div>
+							<%
+								Date date = new Date();
+							%>
+							<div>
+							
+							<div class="form-group">
+								<div class="col-lg-4">
+									<label class="control-label" for="username">Username</label>
+								</div>
+								<div class="col-lg-8">
+									<form:input id="username" path="username" placeholder="Please enter UserName" type="text" class="form-control" value=""/>
+								<span class="help-block"></span>
+								</div>								
+							</div>
+							
+							<div class="form-group">
+								<div class="col-lg-4">
+									<label class="control-label" for="password">Password</label>
+								</div>
+								<div class="col-lg-8">
+									<form:input id="password" path="password" placeholder="Please enter Password" type="password" class="form-control" value=""/>
+								<span class="help-block"></span>
+								</div>								
+							</div>
+							
+							<div class="form-group">
+								<div class="col-lg-4">
+									<label class="control-label" for="password">Confirm Password</label>
+								</div>
+								<div class="col-lg-8">
+									<form:input id="confirmPassword" path="" placeholder="Please Confirm Password" type="password" class="form-control" value=""/>
+								<span class="help-block"></span>
+								</div>								
+							</div>
+							
+							<div class="form-group">
+								<div class="col-lg-4">
+									<label class="control-label" for="email">Email</label>
+								</div>
+								<div class="col-lg-8">
+									<form:input id="email" path="email" placeholder="Please enter Email" type="text" class="form-control" value=""/>
+								<span class="help-block"></span>
+								</div>								
+							</div>
+							<h2>Address</h2>
+							<div class="form-group">
+								<div class="col-lg-4">
+									<label class="control-label" for="street">Street</label>
+								</div>
+								<div class="col-lg-8">
+									<form:input id="street" path="address.street" placeholder="Please enter Street" type="text" class="form-control" value=""/>
+								<span class="help-block"></span>
+								</div>								
+							</div>
+							
+							<div class="form-group">
+								<div class="col-lg-4">
+									<label class="control-label" for="city">City</label>
+								</div>
+								<div class="col-lg-8">
+									<form:input id="city" path="address.city" placeholder="Please enter City" type="text" class="form-control" value=""/>
+								<span class="help-block"></span>
+								</div>								
+							</div>
+							
+							<div class="form-group">
+								<div class="col-lg-4">
+									<label class="control-label" for="state">State</label>
+								</div>
+								<div class="col-lg-8">
+									<form:input id="state" path="address.state" placeholder="Please enter First Name" type="text" class="form-control" value=""/>
+								<span class="help-block"></span>
+								</div>								
+							</div>
+							<div class="form-group">
+								<div class="col-lg-4">
+									
+								</div>
+								<div class="col-lg-8">
+									<input type="submit" id="btnAdd" class="btn btn-info btn-block" value="Register" onclick="return Validate()">
+								<span class="help-block"></span>
+								</div>								
+							</div>
+						</form:form>
+					</div>
+				</div>
 			</div>
 		</div>
-	</section>
-	<section class="container">
-		<form:form modelAttribute="donor" action="register"
-			class="form-horizontal" method="POST">
-			<fieldset>
-				<legend>Add new member</legend>
-
-
-				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="firstName">First
-						Name </label>
-					<div class="col-lg-10">
-						<form:input id="firstName" path="firstName" type="text"
-							class="form:input-large" />
-
-					</div>
-				</div>
-				<div>
-					<form:input id="eligible" path="eligible.eligible" type="hidden"
-						value="false" />
-				</div>
-				<%
-					Date date = new Date();
-				%>
-				<div>
-				
-					<form:input id="eligible" path="eligible.donationDate" type="hidden"
-						value="${now}" />
-				</div>
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="lastName">Last
-						Name</label>
-					<div class="col-lg-10">
-						<form:input id="lastName" path="lastName" type="text"
-							class="form:input-large" />
-
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="lastName">Blood
-						Group</label>
-					<div class="col-lg-10">
-						<form:select path="bloodGroup">
-							<form:option value="" label="Select Blood Type" />
-							<form:options path="${availableOptions}" />
-						</form:select>
-					</div>
-
-				</div>
-
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="registrationDate">Registration
-						Date</label>
-					<div class="col-lg-10">
-						<div class="form:input-prepend">
-							<form:input id="registrationDate" path="registrationDate"
-								type="text" class="form:input-large" />
-
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="username">username</label>
-					<div class="col-lg-10">
-						<div class="form:input-prepend">
-							<form:input id="username" path="username" type="text"
-								class="form:input-large" />
-
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="password">Password</label>
-					<div class="col-lg-10">
-						<div class="form:input-prepend">
-							<form:input id="password" path="password" type="password"
-								class="form:input-large" />
-
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="password">Confirm
-						Password</label>
-					<div class="col-lg-10">
-						<div class="form:input-prepend">
-							<form:input id="confirmPassword" path="" type="password"
-								class="form:input-large" />
-
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="email">Email</label>
-					<div class="col-lg-10">
-						<div class="form:input-prepend">
-							<form:input id="email" path="email" type="text"
-								class="form:input-large" />
-
-						</div>
-					</div>
-				</div>
-				<h3>Address</h3>
-				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="street">
-						Street</label>
-					<div class="col-lg-10">
-						<form:input id="street" path="address.street" type="text"
-							class="form:input-large" />
-
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="city">
-						City</label>
-					<div class="col-lg-10">
-						<form:input id="city" path="address.city" type="text"
-							class="form:input-large" />
-
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="state">
-						State</label>
-					<div class="col-lg-10">
-						<form:input id="state" path="address.state" type="text"
-							class="form:input-large" />
-
-					</div>
-				</div>
-
-
-				<div class="form-group">
-					<div class="col-lg-offset-2 col-lg-10">
-						<input type="submit" id="btnAdd" class="btn btn-primary"
-							value="Register" onclick="return Validate()" />
-					</div>
-				</div>
-
-			</fieldset>
-		</form:form>
-	</section>
+	</div>
 	<script>
 		$(function() {
 			$("#registrationDate").datepicker();

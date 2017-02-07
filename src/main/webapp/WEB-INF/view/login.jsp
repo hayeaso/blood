@@ -15,50 +15,50 @@
 <title>Login</title>
 </head>
 <body>
-	<section>
-		<div class="jumbotron">
-			<div class="container">
-				<h1>Login</h1>
-				<p>Already a New Member
-				<p>
+	<div id="login-overlay" class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">Login to <b>Lifesavers</b></h4> or go back to our <a href="/">main site</a>.
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="well">
+							<form:form id="loginForm" action="login" class="form-horizontal" method="POST">
+								<div class="form-group">
+									<label for="username" class="control-label">Username</label>
+									<input id="username" name="username" type="text" class="form-control" value="" required="" title="Please enter your username" placeholder="Username">
+									<span class="help-block"></span>
+								</div>
+								<div class="form-group">
+									<label for="password" class="control-label">Password</label>
+									<input id="password"  name="password" type="password" class="form-control" placeholder="Password" value="" required="" title="Please enter your password">
+									<span class="help-block"></span>
+								</div>
+								<div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" name="remember" id="remember"> Remember login
+									</label>
+									<p class="help-block">(if this is a private computer)</p>
+								</div>
+								<button type="submit" value="login" name="submit" class="btn btn-success btn-block">Login</button>
+							</form:form>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<p class="lead">Register for <span class="text-success">FREE</span></p>
+						<ul class="list-unstyled" style="line-height: 2">
+							<li><span class="fa fa-check text-success"></span> See all blood doners around you</li>
+							<li><span class="fa fa-check text-success"></span> Find on google map</li>
+							<li><span class="fa fa-check text-success"></span> Checks the doners eligibility</li>					</ul>
+						<p><a href="register" class="btn btn-info btn-block">Register now!</a></p>
+					</div>
+				</div>
 			</div>
 		</div>
-	</section>
-	<section class="container">
-		<form:form  action="login" class="form-horizontal" method="POST">
-			<fieldset>
-				<legend>Login here</legend>
-
-
-				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="firstName">User
-						Name </label>
-					<div class="col-lg-10">
-						<input id="username" name="username" type="text"
-							class="form:input-large" />
-
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="password">Password </label>
-					<div class="col-lg-10">
-						<input id="password"  name="password" type="password"
-							class="form:input-large" />
-
-					</div>
-				</div>
-
-				<div class="form-group">
-					<div class="col-lg-offset-2 col-lg-10">
-						<input type="submit" id="login" class="btn btn-primary"
-							value="login" />
-					</div>
-				</div>
-
-			</fieldset>
-		</form:form>
-	</section>
-
+	
+	</div>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
