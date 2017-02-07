@@ -5,10 +5,11 @@ getdonors = function() {
 		dataType : "json",
 		contentType: "application/json",
 		success : function(donors) {
-			jQuery.each(donors, function(i, donor) {
-				alert(donor.address);
-
-			});
+//			jQuery.each(donors, function(i, donor) {
+//				alert(donor.address);
+//
+//			});
+			getData(donors);
 		},
 		error : function() {
 			alert('Error while request..');

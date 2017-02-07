@@ -32,7 +32,7 @@
 		<div class="jumbotron">
 			<div class="container">
 				<h1>Register Here</h1>
-				<a id="search" href="#" onclick="getData()">Search</a>
+				<a id="search" href="#" onclick="getdonors()">Search</a>
 			</div>
 		</div>
 <!--     <div id="container"> -->
