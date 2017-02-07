@@ -1,6 +1,6 @@
 INSERT INTO `lifesavers`.`address` (`city`, `state`, `street`) VALUES ('fairfield', 'IA', '1000 N 4th ST');
 INSERT INTO `lifesavers`.`address` (`city`, `state`, `street`) VALUES ('fairfield', 'IA', '1705 W Burlington Ave');
-INSERT INTO `lifesavers`.`address` (`city`, `state`, `street`) VALUES ('fairfield', 'IA', '605 E Broadway Ave')	
+INSERT INTO `lifesavers`.`address` (`city`, `state`, `street`) VALUES ('fairfield', 'IA', '605 E Broadway Ave')	;
 
 INSERT INTO `lifesavers`.`eligibility` (`donationDate`, `eligible`) VALUES ('2017-02-22 00:00:00', '0');
 INSERT INTO `lifesavers`.`donor` (`bloodGroup`, `email`, `firstName`, `lastName`, `password`, `registrationDate`, `username`, `Address`, `Eligible`) VALUES ('O_positive', 'haye.sidi@gmail.com', 'Haye', 'Haye', '123456', '2017-02-22 00:00:00', 'hayuso', '1', '1');
