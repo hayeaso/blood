@@ -1,3 +1,15 @@
+.footer {
+  /*position: absolute;*/
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #e7e7e7;
+  text-align: center;
+}
+.footer_text{
+	margin: 20px 0;
+}
 #registrationDate{
 	opacity:1;
 }
