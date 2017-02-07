@@ -56,7 +56,7 @@
 										<form:options path="${availableOptions}" />
 									</form:select>
 								<span class="help-block"></span>
-								</div>								
+								</div>				
 							</div>
 							
 							<div class="form-group">

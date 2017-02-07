@@ -14,7 +14,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <title>Login</title>
 </head>
-<body>
+<body> 
 	<div id="login-overlay" class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
