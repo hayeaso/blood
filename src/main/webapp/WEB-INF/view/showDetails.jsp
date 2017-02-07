@@ -41,7 +41,9 @@
 <!--         </div> -->
 <!--     </div> -->
     <div id="map"></div>
-
+	<form:form action = "admin">
+		<input type = "submit" value = "admin" id = "admin" />
+	</form:form>
 
 </body>
 </html>
