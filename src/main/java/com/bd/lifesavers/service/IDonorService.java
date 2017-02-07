@@ -16,5 +16,7 @@ public interface IDonorService {
 	public String getPassword(String username);
 
 	public List<Donor> getDonors();
+	
+	public void remove(long id);
 
 }

@@ -31,5 +31,10 @@ public class DonorServiceImpl implements IDonorService {
 		
 		return (List<Donor>) donorrepo.findAll();
 	}
+	@Override
+	public void remove(long id) {
+		donorrepo.delete(id);
+		
+	}
 
 }
