@@ -18,12 +18,14 @@ public void saveDonor(Donor donor);
 
 	public List<Donor> getDonors();
 	
-	public void remove(long id);
+	public void remove(Long id);
 	
 	public Donor getDonorById(Long id);
 	
 	public List<Donor> getDonorsByBloodGroup(BloodGroup name);
 
 	public void updateDonor(Donor donor);
+
+	public Long getIdByUsername(String username);
 
 }

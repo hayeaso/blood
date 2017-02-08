@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bd.lifesavers.domain.BloodGroup;
@@ -27,13 +28,36 @@ import com.bd.lifesavers.domain.Donor;
 import com.bd.lifesavers.service.IDonationService;
 import com.bd.lifesavers.service.IDonorService;
 
+@SessionAttributes({"donorID","username"})
+
 @Controller
 public class MemberController {
-	Long tempID = 2L;
+	Long tempId;
 	@Autowired
 	IDonorService donorService;
 	@Autowired
 	IDonationService donationService;
+	
+	
+	
+	//Admin part instead of admin controller
+	
+	
+	@RequestMapping(value = "/admin")
+	public String admin(Model model, Donor donor){
+		model.addAttribute("donors", donorService.getDonors());
+		return "admin";
+	}
+	
+	@RequestMapping(value = "/remove/{id}")
+	public String removeMember(@PathVariable("id") Long id){
+		donorService.remove(id);
+		return "redirect:/admin";
+	}
+	
+	//**************************Admin part instead of admin controller
+	
+	
 
 	@RequestMapping(value = "/members", method = RequestMethod.GET)
 	public @ResponseBody List<Donor> message(@RequestParam("name") BloodGroup name, Model model) {
@@ -41,7 +65,7 @@ public class MemberController {
 		List<Donor> donors = donorService.getDonorsByBloodGroup(name);
 		List<Donor> donorstobeadded = new ArrayList<Donor>();
 		for (Donor donor : donors) {
-			if (donor.getId() != tempID) {
+			if (donor.getId() != tempId) {
 				donorstobeadded.add(donor);
 			}
 		}
@@ -54,7 +78,7 @@ public class MemberController {
 		Donor donor = new Donor();
 		Donor receiver = new Donor();
 		donor = donorService.getDonorById(id);
-		receiver = donorService.getDonorById(tempID);
+		receiver = donorService.getDonorById(tempId);
 		Date date = new Date();
 		donation.setDonor(donor);
 		donation.setReceiver(receiver);
@@ -98,7 +122,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String afterLogin(HttpServletRequest request) {
+	public String afterLogin(HttpServletRequest request, Model model) {
 		String password = request.getParameter("password");
 		String username = request.getParameter("username");
 		String receivedPassword = donorService.getPassword(username);
@@ -106,6 +130,9 @@ public class MemberController {
 		if (!receivedPassword.equals(password)) {
 			return "login";
 		}
+		tempId = donorService.getIdByUsername(username);
+		model.addAttribute("username", username);
+		model.addAttribute("donorID", tempId );
 		return "redirect:/showDetails";
 	}
 

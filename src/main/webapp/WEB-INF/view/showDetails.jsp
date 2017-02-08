@@ -65,6 +65,7 @@
 					<form:options path="${availableOptions}" />
 				</form:select>
 				<a id="search" href="#" onclick="getdonors()">Search</a>
+				Welcome ${username}!
 			</form:form>
 			<form:form action="admin">
 				<input type="submit" value="admin" id="admin" />

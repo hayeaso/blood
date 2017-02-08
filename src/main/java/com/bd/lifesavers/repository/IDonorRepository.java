@@ -19,4 +19,7 @@ public interface IDonorRepository extends CrudRepository<Donor,Long> {
 	@Query("select d from Donor d where d.bloodGroup= :bloodGroup")	
 	public List<Donor> getByBloodGroup(@Param("bloodGroup") BloodGroup name);
 
+	@Query("select id from Donor d where d.username= :username")	
+	public Long getIdByUsername(@Param("username") String username);
+
 }

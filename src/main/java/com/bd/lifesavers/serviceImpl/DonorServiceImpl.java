@@ -33,7 +33,7 @@ public class DonorServiceImpl implements IDonorService {
 		return (List<Donor>) donorrepo.findAll();
 	}
 	@Override
-	public void remove(long id) {
+	public void remove(Long id) {
 		donorrepo.delete(id);
 		
 	}
@@ -50,6 +50,11 @@ public class DonorServiceImpl implements IDonorService {
 	public void updateDonor(Donor donor) {
 		donorrepo.save(donor);
 		
+	}
+	@Override
+	public Long getIdByUsername(String username) {
+		
+		return donorrepo.getIdByUsername(username);
 	}
 
 
