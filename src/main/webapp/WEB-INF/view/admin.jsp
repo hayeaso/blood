@@ -9,10 +9,9 @@
 	<spring:url value="/resources/css/style.css" var="stylecss" />
 	<meta charset="utf-8">
 	<title>Admin Dashboard</title>
-	<meta name="description" content="">
-	<link href="${stylecss}" rel="stylesheet" />
+	<meta name="description" content="">	
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
-	
+	<link href="${stylecss}" rel="stylesheet" />
 </head>
 <body>
 	<!-- Fixed navbar -->
@@ -38,9 +37,10 @@
 		</div>
 	</nav>
 	<div class="container">
+		<div class="jumbotron">
 		<h2>Welcome to the admin panel</h2>
 		<div class="table-responsive">
-			<table class="table table-striped table-bordered">
+			<table class="table table-condensed table-bordered">
 				<thead class="">
 					<tr>
 						<th>#ID</th>
@@ -65,19 +65,20 @@
 							<td><c:out value="${donor.bloodGroup}" /></td>							
 							<td>
 							<a class="btn btn-danger" href="<c:url value='/remove/${donor.id}' />">Delete</a>
-							<a class="btn btn-primary" href="<c:url value='/profile/${donor.id}' />">Profile</a>
+							<a class="btn btn-primary" href="<c:url value='/profile/${donor.id}' />">Edit Profile</a>
 							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-		<div class="col-lg-3 col-sm-3">
-			<a href="profile" class="btn btn-info btn-block">Profile</a>
 		</div>
-		
 	</div>
-		
+	
+	<div class="footer_admin">
+		<p class="footer_text">Copyright &copy; Lifesavers 2017 </p>
+	</div>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 	

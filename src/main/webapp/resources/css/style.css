@@ -1,14 +1,20 @@
 .footer {
-  /*position: absolute;*/
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
   background-color: #e7e7e7;
   text-align: center;
 }
+.footer_admin{
+	position: absolute;
+	bottom: 0;
+	background-color: #101010;
+	color: #fff;
+	width: 100%;
+	text-align: center;
+}
 .footer_text{
 	padding: 20px;
-	margin: 20px 0 0;
+	margin: 0;
 }
 #registrationDate{
 	opacity:1;
