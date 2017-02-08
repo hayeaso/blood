@@ -9,9 +9,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker.css" rel="stylesheet"/>
 <link href="${stylecss}" rel="stylesheet" />
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <title>Register</title>
 </head>
 <body>
@@ -85,7 +85,7 @@
 								<div class="col-lg-8">
 									<form:input id="registrationDate" path="registrationDate"
 										placeholder="Please enter Registration Date" type="text"
-										class="form-control hasDatepicker" value="" />
+										class="form-control datepicker" value="" />
 									<span class="help-block"></span>
 								</div>
 								<div style="text-align: center;">
@@ -215,10 +215,15 @@
 			</div>
 		</div>
 	</div>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script>
-		$(function() {
-			$("#registrationDate").datepicker();
-		});
+		/* $(function() {
+			$(".datepicker").datepicker({
+				format: 'mm-dd-yyyy'
+			});
+		}); */
 	</script>
 	<script type="text/javascript">
 		function Validate() {

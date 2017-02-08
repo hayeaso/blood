@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "Address")
@@ -15,8 +18,14 @@ public class Address {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@NotEmpty
+	@Size(min=4, message="Size.street")
 	private String street;
+	@NotEmpty
+	@Size(min=4, message="Size.city")
 	private String city;
+	@NotEmpty
+	@Size(min=2, max=2, message="Size.state")
 	private String state;
 	public String getStreet() {
 		return street;

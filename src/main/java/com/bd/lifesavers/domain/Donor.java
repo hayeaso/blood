@@ -11,6 +11,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Donor {
@@ -25,23 +32,40 @@ public class Donor {
 	@Column(name="donor_Id")
 	private long id;
 	
+	@NotEmpty
+	@Size(min = 4 , max = 50  , message = "{Size.firstName.validation}")
 	private String firstName;
+	
+	@NotEmpty
+	@Size(min = 4 , max = 50  , message = "{Size.lastName.validation}")
 	private String lastName;
 	
+	@Valid
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="Address")
 	private Address address;
 	
+	@NotNull
+	@DateTimeFormat(pattern = "mm-dd-yyyy")
 	private Date registrationDate;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "Eligible")
 	private Eligibility eligible;
+	
 	@Enumerated(EnumType.STRING)
 	private BloodGroup bloodGroup;
 	
+	@NotEmpty
+	@Email
 	private String email;
+	
+	@NotEmpty
 	private String username;
+	
+	@NotEmpty
 	private String password;
+	
 	public long getId() {
 		return id;
 	}

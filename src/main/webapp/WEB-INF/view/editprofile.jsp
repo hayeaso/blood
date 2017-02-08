@@ -41,7 +41,9 @@
 									<form:input id="firstName" path="firstName"
 										placeholder="Please enter First Name" type="text"
 										class="form-control" value="" />
-									<span class="help-block"></span>
+									<span class="help-block">
+										<form:errors path="firstName" cssStyle="color : red;" />
+									</span>
 								</div>
 							</div>
 
@@ -53,7 +55,9 @@
 									<form:input id="lastName" path="lastName"
 										placeholder="Please enter Last Name" type="text"
 										class="form-control" value="" />
-									<span class="help-block"></span>
+									<span class="help-block">
+										<form:errors path="lastName" cssStyle="color : red;" />
+									</span>
 								</div>
 							</div>
 
@@ -67,7 +71,9 @@
 										<form:option value="" label="Select Blood Type" />
 										<form:options path="${availableOptions}" />
 									</form:select>
-									<span class="help-block"></span>
+									<span class="help-block">
+										<form:errors path="bloodGroup" cssStyle="color : red;" />
+									</span>
 								</div>
 							</div>
 
@@ -79,10 +85,9 @@
 									<form:input id="username" path="username"
 										placeholder="Please enter UserName" type="text"
 										class="form-control" value="" />
-									<span class="help-block"></span>
-								</div>
-								<div style="text-align: center;">
-									<form:errors path="username" cssStyle="color : red;" />
+									<span class="help-block">
+										<form:errors path="username" cssStyle="color : red;" />
+									</span>
 								</div>
 							</div>
 
@@ -94,10 +99,9 @@
 									<form:input id="email" path="email"
 										placeholder="Please enter Email" type="text"
 										class="form-control" value="" />
-									<span class="help-block"></span>
-								</div>
-								<div style="text-align: center;">
-									<form:errors path="email" cssStyle="color : red;" />
+									<span class="help-block">
+										<form:errors path="email" cssStyle="color : red;" />
+									</span>
 								</div>
 							</div>
 							<h2>Address</h2>
@@ -109,10 +113,9 @@
 									<form:input id="street" path="address.street"
 										placeholder="Please enter Street" type="text"
 										class="form-control" value="" />
-									<span class="help-block"></span>
-								</div>
-								<div style="text-align: center;">
-									<form:errors path="address.street" cssStyle="color : red;" />
+									<span class="help-block">
+										<form:errors path="address.street" cssStyle="color : red;" />
+									</span>
 								</div>
 							</div>
 
@@ -124,10 +127,9 @@
 									<form:input id="city" path="address.city"
 										placeholder="Please enter City" type="text"
 										class="form-control" value="" />
-									<span class="help-block"></span>
-								</div>
-								<div style="text-align: center;">
-									<form:errors path="address.city" cssStyle="color : red;" />
+									<span class="help-block">
+										<form:errors path="address.city" cssStyle="color : red;" />
+									</span>
 								</div>
 							</div>
 
@@ -139,10 +141,9 @@
 									<form:input id="state" path="address.state"
 										placeholder="Please enter First Name" type="text"
 										class="form-control" value="" />
-									<span class="help-block"></span>
-								</div>
-								<div style="text-align: center;">
-									<form:errors path="address.state" cssStyle="color : red;" />
+									<span class="help-block">
+										<form:errors path="address.state" cssStyle="color : red;" />
+									</span>
 								</div>
 							</div>
 							<div class="form-group">

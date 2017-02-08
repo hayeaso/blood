@@ -16,12 +16,7 @@
 	padding: 20px;
 	margin: 0;
 }
-#registrationDate{
-	opacity:1;
-}
-#ui-datepicker-div{
-	background-color: green;
-}
+
 #search {
 	text-decoration: none;
 }
