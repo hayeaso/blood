@@ -47,7 +47,7 @@
 					<li><a href="admin">Admin</a></li>
 					<li><a href="#">Edit Profile</a></li>
 					<li><a href="requests">Requests</a></li>
-					<li><a href="requests">Demands</a></li>
+					<li><a href="demands">Demands</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#">Logout</a></li>

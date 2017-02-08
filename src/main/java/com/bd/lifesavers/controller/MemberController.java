@@ -54,15 +54,13 @@ public class MemberController {
 	//**************************Admin part instead of admin controller
 	@RequestMapping(value = "/requests")
 	public String requests(Model model, Donor donor){
-		List <Donor> donors =donationService.getReceiversByDonorId(donorService.getDonorById(tempId));
-		model.addAttribute("donors", donors);
+		model.addAttribute("donors", donationService.getReceiversByDonorId(donorService.getDonorById(tempId)));
 		return "requests";
 	}
 	
 	@RequestMapping(value = "/demands")
 	public String demands(Model model, Donor donor){
-		List <Donor> donors =donationService.getDonorsByReceiverId(donorService.getDonorById(tempId));
-		model.addAttribute("donors", donors);
+		model.addAttribute("donors", donationService.getDonorsByReceiverId(donorService.getDonorById(tempId)));
 		return "demands";
 	}
 	

@@ -27,6 +27,14 @@ public class Donation {
 	
 	private Date date;
 	
+	private boolean confirmed =false;
+	
+	public boolean isConfirmed() {
+		return confirmed;
+	}
+	public void setConfirmed(boolean confirmed) {
+		this.confirmed = confirmed;
+	}
 	public Donor getDonor() {
 		return donor;
 	}

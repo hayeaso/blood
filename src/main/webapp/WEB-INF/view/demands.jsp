@@ -8,7 +8,7 @@
 <head>
 	<spring:url value="/resources/css/style.css" var="stylecss" />
 	<meta charset="utf-8">
-	<title>Requests For Blood Donations </title>
+	<title>Demands For Blood Donations </title>
 	<meta name="description" content="">
 	<link href="${stylecss}" rel="stylesheet" />
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
@@ -38,7 +38,7 @@
 		</div>
 	</nav>
 	<div class="container">
-		<h2>The List of Requests</h2>
+		<h2>The List of Demands</h2>
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered">
 				<thead class="">
