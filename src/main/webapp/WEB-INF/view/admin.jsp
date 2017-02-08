@@ -65,7 +65,6 @@
 							<td><c:out value="${donor.bloodGroup}" /></td>							
 							<td>
 							<a class="btn btn-danger btn-xs" href="<c:url value='/remove/${donor.id}' />"><span class="glyphicon glyphicon-trash"></span></a>
-							<a class="btn btn-primary btn-xs" href="<c:url value='/profile/${donor.id}' />"><span class="glyphicon glyphicon-pencil"></span></a>
 							</td>
 						</tr>
 					</c:forEach>

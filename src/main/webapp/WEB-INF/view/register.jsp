@@ -193,7 +193,7 @@
 								</div>
 								<div class="col-lg-8">
 									<form:input id="state" path="address.state"
-										placeholder="Please enter First Name" type="text"
+										placeholder="Please enter State" type="text"
 										class="form-control" value="" />
 									<span class="help-block"></span>
 								</div>
