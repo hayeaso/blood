@@ -40,7 +40,7 @@
 		<div class="jumbotron">
 		<h2>Welcome to the admin panel</h2>
 		<div class="table-responsive">
-			<table class="table table-condensed table-bordered">
+			<table class="table table-condensed table-bordered table-hover">
 				<thead class="">
 					<tr>
 						<th>#ID</th>
@@ -64,8 +64,8 @@
 							<td><c:out value="${donor.eligible.eligible}" /></td>
 							<td><c:out value="${donor.bloodGroup}" /></td>							
 							<td>
-							<a class="btn btn-danger" href="<c:url value='/remove/${donor.id}' />">Delete</a>
-							<a class="btn btn-primary" href="<c:url value='/profile/${donor.id}' />">Edit Profile</a>
+							<a class="btn btn-danger btn-xs" href="<c:url value='/remove/${donor.id}' />"><span class="glyphicon glyphicon-trash"></span></a>
+							<a class="btn btn-primary btn-xs" href="<c:url value='/profile/${donor.id}' />"><span class="glyphicon glyphicon-pencil"></span></a>
 							</td>
 						</tr>
 					</c:forEach>
