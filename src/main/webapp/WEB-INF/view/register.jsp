@@ -206,7 +206,7 @@
 								<div class="col-lg-8">
 									<input type="submit" id="btnAdd" class="btn btn-info btn-block"
 										value="Register" onclick="return Validate()"> <span
-										class="help-block"></span>
+										class="help-block"></span> 
 								</div>
 							</div>
 						</form:form>

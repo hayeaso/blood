@@ -159,7 +159,7 @@
 							<div class="col-lg-8">
 								<form:input id="password" path="password"
 									placeholder="Please enter Password" type="hidden"
-									class="form-control" value="" />
+									class="form-control" value="" /> 
 								<span class="help-block"></span>
 							</div>
 							<div>
