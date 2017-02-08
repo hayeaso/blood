@@ -56,12 +56,9 @@ public class MemberController {
 		donor = donorService.getDonorById(id);
 		receiver = donorService.getDonorById(tempID);
 		Date date = new Date();
-		System.out.println(date);
 		donation.setDonor(donor);
 		donation.setReceiver(receiver);
 		donation.setDate(date);
-		System.out.println(date + "Donor:" + donation.getDonor().getFirstName() + "   receiver:"
-				+ donation.getReceiver().getFirstName());
 		donationService.save(donation);
 
 		return "Your Request is Sent!";
@@ -74,7 +71,6 @@ public class MemberController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String register(@ModelAttribute("donor") Donor donor) {
-		System.out.println("****GET");
 		return "register";
 	}
 
@@ -82,7 +78,6 @@ public class MemberController {
 	public String afterRegister(@ModelAttribute("donor") Donor donor, BindingResult res,
 			RedirectAttributes redirectattributes) {
 		if (res.hasErrors()) {
-			// System.out.println("*******fuck off***");
 			return "register";
 		}
 
@@ -135,10 +130,8 @@ public class MemberController {
 		
 		try {
 			Date date = format.parse(registrationDate);
-			System.out.println(date);
 			donor.setRegistrationDate(date);
 		} catch (ParseException e) {
-			System.out.println("ohhhh shit");
 			e.printStackTrace();
 		}
 		
