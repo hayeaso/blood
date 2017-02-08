@@ -28,7 +28,10 @@
 				<div class="row">
 					<div class="well">
 						<form:form modelAttribute="donor" class="form-horizontal"
-							action="../profile" method="POST">
+							action="../profile " method="POST">
+							<p>
+								<form:errors path="*" cssStyle="color : red;" />
+							</p>
 							<div class="form-group">
 								<div class="col-lg-4">
 									<label class="control-label" for="firstName">First Name
@@ -78,6 +81,9 @@
 										class="form-control" value="" />
 									<span class="help-block"></span>
 								</div>
+								<div style="text-align: center;">
+									<form:errors path="username" cssStyle="color : red;" />
+								</div>
 							</div>
 
 							<div class="form-group">
@@ -89,6 +95,9 @@
 										placeholder="Please enter Email" type="text"
 										class="form-control" value="" />
 									<span class="help-block"></span>
+								</div>
+								<div style="text-align: center;">
+									<form:errors path="email" cssStyle="color : red;" />
 								</div>
 							</div>
 							<h2>Address</h2>
@@ -102,6 +111,9 @@
 										class="form-control" value="" />
 									<span class="help-block"></span>
 								</div>
+								<div style="text-align: center;">
+									<form:errors path="address.street" cssStyle="color : red;" />
+								</div>
 							</div>
 
 							<div class="form-group">
@@ -114,6 +126,9 @@
 										class="form-control" value="" />
 									<span class="help-block"></span>
 								</div>
+								<div style="text-align: center;">
+									<form:errors path="address.city" cssStyle="color : red;" />
+								</div>
 							</div>
 
 							<div class="form-group">
@@ -125,6 +140,9 @@
 										placeholder="Please enter First Name" type="text"
 										class="form-control" value="" />
 									<span class="help-block"></span>
+								</div>
+								<div style="text-align: center;">
+									<form:errors path="address.state" cssStyle="color : red;" />
 								</div>
 							</div>
 							<div class="form-group">
@@ -149,7 +167,9 @@
 
 							</div>
 							<div class="col-lg-8">
-								<form:input id="registrationDate" path="registrationDate" placeholder="Please enter Registration Date" type="text" class="form-control hasDatepicker" value="${registrationDate}"/>
+								<form:input id="registrationDate" path="registrationDate"
+									placeholder="Please enter Registration Date" type="hidden"
+									class="form-control hasDatepicker" value="${registrationDate}" />
 								<span class="help-block"></span>
 							</div>
 						</form:form>

@@ -13,7 +13,19 @@
  		<!-- security:global-method-security pre-post-annotations="enabled"/ -->
 
  	
-	<mvc:annotation-driven />
+	<mvc:annotation-driven validator="validator" />
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="errorMessages" />
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="validationMessageSource" ref="messageSource" />
+	</bean>
+	
 	<context:component-scan base-package="com.bd.lifesavers" />
  	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

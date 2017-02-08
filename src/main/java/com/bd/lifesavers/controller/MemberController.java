@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -105,9 +106,10 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String afterRegister(@ModelAttribute("donor") Donor donor, BindingResult res,
+	public String afterRegister(@Valid @ModelAttribute("donor") Donor donor, BindingResult res,
 			RedirectAttributes redirectattributes) {
 		if (res.hasErrors()) {
+			System.out.println("it has errors");
 			return "register";
 		}
 
@@ -116,7 +118,7 @@ public class MemberController {
 
 		return "redirect:/showDetails";
 	}
-
+	
 	@RequestMapping(value = "/showDetails", method = RequestMethod.GET)
 	public String showDetails(@ModelAttribute("person")Donor person, Model model) {
 		return "showDetails";
@@ -155,9 +157,11 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/profile", method = RequestMethod.POST)
-	public String afterEdit(@ModelAttribute("donor") Donor donor, BindingResult bindingresult, Model model, HttpServletRequest request) {
+	public String afterEdit(@Valid @ModelAttribute("donor") Donor donor, BindingResult bindingresult, Model model, HttpServletRequest request) {
 		
-		
+		if(bindingresult.hasErrors()){
+			return "editprofile";
+		}
 		String registrationDate =  request.getParameter("registrationDate");
 		DateFormat format = new SimpleDateFormat("yyyy-M-dd");
 		
@@ -166,12 +170,6 @@ public class MemberController {
 			donor.setRegistrationDate(date);
 		} catch (ParseException e) {
 			e.printStackTrace();
-		}
-		
-		
-		if (bindingresult.hasErrors()) {
-			
-			System.out.println("errrrros");
 		}
 		
 		donorService.updateDonor(donor);
