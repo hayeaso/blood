@@ -30,7 +30,7 @@
 <title>Dashboard</title>
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar navbar-default navbar-static-top">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -44,7 +44,7 @@
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li><a href="/admin">Admin</a></li>
+					<li><a href="admin">Admin</a></li>
 					<li><a href="#">Edit Profile</a></li>
 					<li><a href="#">Requests</a></li>
 				</ul>
@@ -55,28 +55,35 @@
 		</div>
 	</nav>
 	
-	<!-- <a id="haye" href="#" onclick="getdonors()">Search</a> -->
-	<div class="jumbotron">
-		<div class="container">
-			<h1>Register Here</h1>
-			<form:form modelAttribute="person">
-				<form:select path="bloodGroup" class="form-control" id="search">
-					<form:option value="" label="Select Blood Type" />
-					<form:options path="${availableOptions}" />
-				</form:select>
-				<a id="search" href="#" onclick="getdonors()">Search</a>
-				Welcome ${username}!
-			</form:form>
-			<form:form action="admin">
-				<input type="submit" value="admin" id="admin" />
-			</form:form>
-
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">Search <b>Lifesavers</b></h4>.
+			</div>
+			
+			<div class="modal-body">
+				<div class="row">
+					<div class="well">
+						<form:form modelAttribute="person" class="form-horizontal">
+							<div class="form-group">
+								<div class="col-lg-8">
+									<form:select path="bloodGroup" class="form-control" id="search">
+										<form:option value="" label="Select Blood Type" />
+										<form:options path="${availableOptions}" />
+									</form:select>
+								</div>
+								<div class="col-lg-4">
+									<a id="search" href="#" class="btn btn-info btn-block" onclick="getdonors()">Search</a>
+								</div>								
+							</div>
+						</form:form>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-
+	
 	<div id="map"></div>
-
-
-
+	
 </body>
 </html>
