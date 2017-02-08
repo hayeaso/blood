@@ -27,12 +27,12 @@
 							<form:form id="loginForm" action="login" class="form-horizontal" method="POST">
 								<div class="form-group">
 									<label for="username" class="control-label">Username</label>
-									<input id="username" name="username" type="text" class="form-control" value="" required="" title="Please enter your username" placeholder="Username">
+									<input id="username" name="username" type="text" class="form-control" value="" required title="Please enter your username" placeholder="Username">
 									<span class="help-block"></span>
 								</div>
 								<div class="form-group">
 									<label for="password" class="control-label">Password</label>
-									<input id="password"  name="password" type="password" class="form-control" placeholder="Password" value="" required="" title="Please enter your password">
+									<input id="password"  name="password" type="password" class="form-control" placeholder="Password" value="" required title="Please enter your password">
 									<span class="help-block"></span>
 								</div>
 								<div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
