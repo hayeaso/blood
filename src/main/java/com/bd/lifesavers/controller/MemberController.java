@@ -41,24 +41,32 @@ public class MemberController {
 	
 	
 	//Admin part instead of admin controller
-	
-	
 	@RequestMapping(value = "/admin")
 	public String admin(Model model, Donor donor){
 		model.addAttribute("donors", donorService.getDonors());
 		return "admin";
 	}
-	
 	@RequestMapping(value = "/remove/{id}")
 	public String removeMember(@PathVariable("id") Long id){
 		donorService.remove(id);
 		return "redirect:/admin";
 	}
-	
 	//**************************Admin part instead of admin controller
+	@RequestMapping(value = "/requests")
+	public String requests(Model model, Donor donor){
+		List <Donor> donors =donationService.getReceiversByDonorId(donorService.getDonorById(tempId));
+		model.addAttribute("donors", donors);
+		return "requests";
+	}
+	
+	@RequestMapping(value = "/demands")
+	public String demands(Model model, Donor donor){
+		List <Donor> donors =donationService.getDonorsByReceiverId(donorService.getDonorById(tempId));
+		model.addAttribute("donors", donors);
+		return "demands";
+	}
 	
 	
-
 	@RequestMapping(value = "/members", method = RequestMethod.GET)
 	public @ResponseBody List<Donor> message(@RequestParam("name") BloodGroup name, Model model) {
 

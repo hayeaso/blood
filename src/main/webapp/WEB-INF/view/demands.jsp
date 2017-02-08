@@ -60,7 +60,7 @@
 							<td>
 							<a class="btn btn-danger" href="<c:url value='/cancel/${donor.id}' />">Cancel</a>
 							<c:out value="${donor.id}" />
-							<a class="btn btn-primary" href="<c:url value='/confirm/${donor.id}' />">Confirm</a>
+							<%-- <a class="btn btn-primary" href="<c:url value='/confirm/${donor.id}' />">Confirm</a> --%>
 							</td>
 						</tr>
 					</c:forEach>

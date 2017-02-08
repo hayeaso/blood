@@ -39,7 +39,7 @@ public class DonorServiceImpl implements IDonorService {
 	}
 	@Override
 	public List<Donor> getDonorsByBloodGroup(BloodGroup name) {
-		return (List<Donor>) donorrepo.getByBloodGroup(name);
+		return donorrepo.getByBloodGroup(name);
 	}
 	@Override
 	public Donor getDonorById(Long id) {
