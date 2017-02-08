@@ -3,12 +3,12 @@
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
   background-color: #e7e7e7;
   text-align: center;
 }
 .footer_text{
-	margin: 20px 0;
+	padding: 20px;
+	margin: 20px 0 0;
 }
 #registrationDate{
 	opacity:1;
@@ -19,9 +19,11 @@
 #search {
 	text-decoration: none;
 }
-
 #map {
-	height: 70%;
+	height: 500px !important;
+	width:100%;
+	border: solid #000 1px;
+	border-radius: 5px;
 }
 body, html{
 	height: 100%;

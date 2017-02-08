@@ -46,7 +46,7 @@
 					<li class="active"><a href="#">Home</a></li>
 					<li><a href="admin">Admin</a></li>
 					<li><a href="#">Edit Profile</a></li>
-					<li><a href="#">Requests</a></li>
+					<li><a href="requests">Requests</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#">Logout</a></li>
@@ -58,9 +58,8 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title" id="myModalLabel">Search <b>Lifesavers</b></h4>.
-			</div>
-			
+				<h4 class="modal-title" id="myModalLabel">Search <b>Lifesavers</b></h4>
+			</div>			
 			<div class="modal-body">
 				<div class="row">
 					<div class="well">
@@ -83,7 +82,14 @@
 		</div>
 	</div>
 	
-	<div id="map"></div>
+	<div class="container">
+		<div class="jumbotron">
+			<div id="map"></div>
+		</div>
+	</div>	
 	
+	<div class="footer">
+		<p class="footer_text">Copyright &copy; Lifesavers 2017 </p>
+	</div>
 </body>
 </html>
