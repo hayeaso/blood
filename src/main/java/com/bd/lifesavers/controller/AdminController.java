@@ -1,7 +1,5 @@
 package com.bd.lifesavers.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,16 +15,12 @@ public class AdminController {
 	IDonorService donorService;
 	@RequestMapping(value = "/admin")
 	public String admin(Model model, Donor donor){
-		List<Donor> don = donorService.getDonors();
 		model.addAttribute("donors", donorService.getDonors());
-		System.out.println("**********");
-		
 		return "admin";
 	}
 	
 	@RequestMapping(value = "/remove/{id}")
 	public String removeMember(@PathVariable("id") int id){
-		System.out.println("************");
 		donorService.remove(id);
 		return "redirect:/admin";
 	}

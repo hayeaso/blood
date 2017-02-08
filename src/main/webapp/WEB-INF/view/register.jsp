@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <jsp:useBean id="now" class="java.util.Date" scope="request" />
 <%@ page import="java.io.*,java.util.*, javax.servlet.*" %>
 <html>
@@ -73,10 +72,7 @@
 								<form:input id="eligible" path="eligible.eligible" type="hidden"
 									value="false" />
 							</div>
-							<%
-								Date date = new Date();
-							%>
-							<div>
+							
 							
 							<div class="form-group">
 								<div class="col-lg-4">

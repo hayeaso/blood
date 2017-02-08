@@ -1,14 +1,12 @@
 getdonors = function() {
+
 	$.ajax({
 		url : '/BloodDonation/members',
 		type : 'GET',
 		dataType : "json",
-		contentType: "application/json",
+		data : "name=" + $('#search').val(),
+		contentType : 'text/plain',
 		success : function(donors) {
-//			jQuery.each(donors, function(i, donor) {
-//				alert(donor.address);
-//
-//			});
 			getData(donors);
 		},
 		error : function() {
@@ -17,3 +15,20 @@ getdonors = function() {
 	})
 }
 
+requestDonation = function(id) {
+	// alert("Your ID is "+ id);
+
+	$.ajax({
+		url : '/BloodDonation/requestBloodDonation',
+		type : 'GET',
+		// dataType : "text/plain",
+		data : "id=" + id,
+		contentType : 'text/plain',
+		success : function(message) {
+			alert(message);
+		},
+		error : function() {
+			alert('Error while request..');
+		}
+	})
+}

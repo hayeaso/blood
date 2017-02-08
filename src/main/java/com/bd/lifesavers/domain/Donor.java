@@ -14,6 +14,12 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Donor {
+	@Override
+	public String toString() {
+		return "Donor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
+				+ ", registrationDate=" + registrationDate + ", eligible=" + eligible + ", bloodGroup=" + bloodGroup
+				+ ", email=" + email + ", username=" + username + ", password=" + password + "]";
+	}
 	@Id
 	@GeneratedValue
 	@Column(name="donor_Id")

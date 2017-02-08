@@ -65,64 +65,55 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 // FUNCTION THAT ACTIVATES WHEN SEARCH IS CLICKED
 function getData(donors) {
 
-	console.log(donors);
 	jQuery.each(donors, function(i, donor) {
+		var id = donor.id;
 		var name = donor.firstName;
+		var lname = donor.lastName;
 		var address = donor.address.street + "," + donor.address.city + ","
 				+ donor.address.state;
-		console.log(name);
-		console.log(address);		
-		helper(name, address);
+		helper(id, name, lname, address);
 
 	});
 
 }
 
 // HELPER FUNCTION: TO ENCODE USER DATA AND ADDRESS LOCATION
-function helper(name, address) {
+function helper(id, name, lname, address) {
 	// GEOCODING ADDRESS INTO LOCATION
-	alert("helper");
-	geocoder
-			.geocode(
-					{
-						'address' : address
-					},
-					function(results, status) {
-						if (status === 'OK') {
-							map.setCenter(results[0].geometry.location);
-							var marker = new google.maps.Marker({
-								map : map,
-								label : name,
-								animation : google.maps.Animation.DROP,
-								position : results[0].geometry.location
-							});
+	geocoder.geocode({
+		'address' : address
+	}, function(results, status) {
+		if (status === 'OK') {
+			map.setCenter(results[0].geometry.location);
+			var marker = new google.maps.Marker({
+				map : map,
+				label : name,
+				animation : google.maps.Animation.DROP,
+				position : results[0].geometry.location
+			});
 
-							markers.push(marker);// just adding in markers
-													// array to do something at
-													// once
+			markers.push(marker);// just adding in markers
+			// array to do something at
+			// once
 
-							// ADDING LISTENER TO THE MARKER
-							marker
-									.addListener(
-											'click',
-											function() {
-												// CREATING INFOWINDOW FOR EVERY
-												// MARKER
-												var infowindow = new google.maps.InfoWindow(
-														{
-															content : '<h1>'
-																	+ name
-																	+ '</h1>'
-																	+ '<br/><a href="#" onclick="alert(\'happy!\')" >Click Me!</a>'
-														});// CONTENTS SHOULD
-															// BE CHANGED
-															// ACCORDINGLY
-												infowindow.open(map, marker);
-											});
+			// ADDING LISTENER TO THE MARKER
+			marker.addListener('click', function() {
+				// CREATING INFOWINDOW FOR EVERY
+				// MARKER
+				var infowindow = new google.maps.InfoWindow({
+					content : '<h1>' + name + ' ' + lname + '</h1>' + '<h3>'
+							+ address + '</h3>'
+							+ '<br/><a href="#" onclick="requestDonation(' + id
+							+ ')" >Click Me!</a>'
+				});// CONTENTS SHOULD
+				// BE CHANGED
+				// ACCORDINGLY
+				infowindow.open(map, marker);
+			});
 
-						} else {
-							alert('Geocode was not successful for the following reason: '
-									+ status);
-						}
-					});
+		} else {
+			alert('Geocode was not successful for the following reason: '
+					+ status);
+		}
+	});
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.bd.lifesavers.domain.BloodGroup;
 import com.bd.lifesavers.domain.Donor;
 import com.bd.lifesavers.repository.IDonorRepository;
 import com.bd.lifesavers.service.IDonorService;
@@ -37,13 +38,19 @@ public class DonorServiceImpl implements IDonorService {
 		
 	}
 	@Override
-	public void updateDonor(Donor donor) {
-		donorrepo.save(donor);
+	public List<Donor> getDonorsByBloodGroup(BloodGroup name) {
+		return (List<Donor>) donorrepo.getByBloodGroup(name);
 	}
 	@Override
-	public Donor getOneDonor(long id) {
-		
+	public Donor getDonorById(Long id) {
+		// TODO Auto-generated method stub
 		return donorrepo.findOne(id);
 	}
+	@Override
+	public void updateDonor(Donor donor) {
+		donorrepo.save(donor);
+		
+	}
+
 
 }
