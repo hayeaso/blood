@@ -10,11 +10,11 @@
 <meta charset="utf-8">
 <title>Requests For Blood Donations</title>
 <meta name="description" content="">
-<link href="${stylecss}" rel="stylesheet" />
+
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" media="all" />
-
+<link href="${stylecss}" rel="stylesheet" />
 </head>
 <body>
 	<!-- Fixed navbar -->
@@ -35,16 +35,17 @@
 					<li class="active"><a href="#">Home</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="logout.html">Logout</a></li>
+					<li><a href="logoutl">Logout</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
 		</div>
 	</nav>
 	<div class="container">
+		<div class="jumbotron">
 		<h2>The List of Requests</h2>
 		<div class="table-responsive">
-			<table class="table table-striped table-bordered">
+			<table class="table table-condensed table-bordered table-hover">
 				<thead class="">
 					<tr>
 						<th>First Name</th>
@@ -67,17 +68,17 @@
 									<c:when test="${donation.confirmed}">CONFIRMED</c:when>
 									<c:otherwise>PENDING</c:otherwise>
 								</c:choose></td>
-							<td><a class="btn btn-danger"
+							<td><a class="btn btn-danger btn-xs"
 								href="<c:url value='/requests/cancel/${donation.id}' />">Cancel</a>
 								<a
-								class="btn btn-primary"
+								class="btn btn-primary btn-xs"
 								href="<c:url value='/requests/confirm/${donation.id}' />">Confirm</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-
+	</div>
 	</div>
 
 	<script type="text/javascript"

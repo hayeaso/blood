@@ -10,15 +10,15 @@
 <meta charset="utf-8">
 <title>Demands For Blood Donations</title>
 <meta name="description" content="">
-<link href="${stylecss}" rel="stylesheet" />
+
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" media="all" />
-
+<link href="${stylecss}" rel="stylesheet" />
 </head>
 <body>
 	<!-- Fixed navbar -->
-	<nav class="navbar navbar-dafault navbar-static-top">
+	<nav class="navbar navbar-default navbar-static-top">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
@@ -35,16 +35,17 @@
 					<li class="active"><a href="#">Home</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="logout.html">Logout</a></li>
+					<li><a href="logoutl">Logout</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
 		</div>
 	</nav>
 	<div class="container">
+		<div class="jumbotron">
 		<h2>The List of Demands</h2>
 		<div class="table-responsive">
-			<table class="table table-striped table-bordered">
+			<table class="table table-condensed table-bordered table-hover">
 				<thead class="">
 					<tr>
 						<th>First Name</th>
@@ -68,16 +69,15 @@
 									<c:otherwise>PENDING</c:otherwise>
 								</c:choose>
 							</td>
-							<td><a class="btn btn-danger"
+							<td><a class="btn btn-danger btn-xs"
 								href="<c:url value='/demands/cancel/${donation.id}' />">Cancel</a>
-
 							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-
+	</div>
 	</div>
 
 	<script type="text/javascript"

@@ -154,7 +154,7 @@ public class MemberController {
 		donorService.saveDonor(donor);
 		redirectattributes.addFlashAttribute(donor);
 
-		return "redirect:/showDetails";
+		return "redirect:/login";
 	}
 
 	@RequestMapping(value = "/showDetails", method = RequestMethod.GET)
