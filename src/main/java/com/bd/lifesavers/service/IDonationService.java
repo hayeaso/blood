@@ -20,4 +20,6 @@ public interface IDonationService {
 	
 
 	public void removeByMemberId(List<Donation> donations, List<Donation> donations2);
+
+	public void deleteDonation(Long id);
 }

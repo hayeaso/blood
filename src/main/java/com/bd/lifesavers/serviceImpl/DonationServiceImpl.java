@@ -33,14 +33,17 @@ public class DonationServiceImpl implements IDonationService {
 
 	@Override
 	public void removeByMemberId(List<Donation> donations, List<Donation> donations2) {
-
 		for (Donation donation : donations) {
-			System.out.println("donation Id :" + donation.getId());
 			donationRepo.delete(donation);
 		}
-
 		for (Donation donation : donations2) {
 			donationRepo.delete(donation);
 		}
+	}
+
+	@Override
+	public void deleteDonation(Long id) {
+		donationRepo.delete(id);
+		
 	}
 }

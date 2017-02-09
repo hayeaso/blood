@@ -9,7 +9,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker.css" rel="stylesheet"/>
+<link
+	href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker.css"
+	rel="stylesheet" />
 <link href="${stylecss}" rel="stylesheet" />
 
 <title>Register</title>
@@ -206,7 +208,7 @@
 								<div class="col-lg-8">
 									<input type="submit" id="btnAdd" class="btn btn-info btn-block"
 										value="Register" onclick="return Validate()"> <span
-										class="help-block"></span> 
+										class="help-block"></span>
 								</div>
 							</div>
 						</form:form>
@@ -217,7 +219,8 @@
 	</div>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script>
 		/* $(function() {
 			$(".datepicker").datepicker({

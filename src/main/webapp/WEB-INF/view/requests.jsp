@@ -68,8 +68,8 @@
 									<c:otherwise>PENDING</c:otherwise>
 								</c:choose></td>
 							<td><a class="btn btn-danger"
-								href="<c:url value='/cancel/${donation.id}' />">Cancel</a>
-								<c:out value="${donation.donor.id}" /> <a
+								href="<c:url value='/requests/cancel/${donation.id}' />">Cancel</a>
+								<a
 								class="btn btn-primary"
 								href="<c:url value='/confirm/${donation.id}' />">Confirm</a></td>
 						</tr>

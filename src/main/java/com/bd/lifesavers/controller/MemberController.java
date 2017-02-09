@@ -59,6 +59,22 @@ public class MemberController {
 		System.out.println("done of Donors");
 		return "redirect:/admin";
 	}
+	
+	@RequestMapping(value = "/requests/cancel/{id}")
+	public String removeDonationRequest(@PathVariable("id") Long id) {
+		
+		donationService.deleteDonation(id);
+		
+		return "redirect:/requests";
+	}
+	
+	@RequestMapping(value = "/demands/cancel/{id}")
+	public String removeDonationDemands(@PathVariable("id") Long id) {
+		
+		donationService.deleteDonation(id);
+		
+		return "redirect:/demands";
+	}
 
 	// **************************Admin part instead of admin controller
 	@RequestMapping(value = "/requests")

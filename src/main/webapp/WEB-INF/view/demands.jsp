@@ -69,7 +69,7 @@
 								</c:choose>
 							</td>
 							<td><a class="btn btn-danger"
-								href="<c:url value='donation/cancel/${donation.id}' />">Cancel</a>
+								href="<c:url value='/demands/cancel/${donation.id}' />">Cancel</a>
 
 							</td>
 						</tr>
