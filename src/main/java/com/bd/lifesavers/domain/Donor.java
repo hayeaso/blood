@@ -46,7 +46,7 @@ public class Donor {
 	private Address address;
 	
 	@NotNull
-	@DateTimeFormat(pattern = "mm-dd-yyyy")
+	@DateTimeFormat(pattern = "yyyy-M-ddy")
 	private Date registrationDate;
 	
 	@OneToOne(cascade = CascadeType.ALL)
