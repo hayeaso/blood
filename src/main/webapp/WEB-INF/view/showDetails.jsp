@@ -44,7 +44,6 @@
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li><a href="admin">Admin</a></li>
 					<li><a href="profile/<%= session.getAttribute("donorID") %>">Edit Profile</a></li>
 					<li><a href="requests">Requests</a></li>
 					<li><a href="demands">Demands</a></li>
