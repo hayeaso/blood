@@ -18,7 +18,7 @@
 </head>
 <body>
 	<!-- Fixed navbar -->
-	<nav class="navbar navbar-inverse navbar-static-top">
+	<nav class="navbar navbar-dafault navbar-static-top">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"

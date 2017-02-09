@@ -109,7 +109,9 @@ public class MemberController {
 		List<Donor> donorstobeadded = new ArrayList<Donor>();
 		for (Donor donor : donors) {
 			if (donor.getId() != tempId) {
-				donorstobeadded.add(donor);
+				if (donor.getEligible().isEligible()==true) {
+					donorstobeadded.add(donor);
+				}
 			}
 		}
 		return donorstobeadded;
