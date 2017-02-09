@@ -15,8 +15,14 @@ public class Eligibility {
 	@Id
 	@GeneratedValue
 	private long id;
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	private Date donationDate;
-	private boolean eligible;
+	private boolean eligible=true;
 	@Transient
 	private MultipartFile proof;
 	public Date getDonationDate() {
