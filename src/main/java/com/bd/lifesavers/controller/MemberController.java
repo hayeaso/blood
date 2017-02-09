@@ -42,26 +42,6 @@ public class MemberController {
 	IDonationService donationService;
 	@Autowired
 	IEligibilityService eligibilityService;
-
-	// Admin part instead of admin controller
-	@RequestMapping(value = "/admin")
-	public String admin(Model model, Donor donor) {
-		model.addAttribute("donors", donorService.getDonors());
-		return "admin";
-	}
-
-	@RequestMapping(value = "/remove/{id}")
-	public String removeMember(@PathVariable("id") Long id) {
-
-		List<Donation> donations = donationService.getDonationsByDonorId(donorService.getDonorById(id));
-		List<Donation> donations2 = donationService.getDonationsByReceiverId(donorService.getDonorById(id));
-
-		donationService.removeByMemberId(donations, donations2);
-		System.out.println("done of Donations");
-		donorService.remove(id);
-		System.out.println("done of Donors");
-		return "redirect:/admin";
-	}
 	
 	@RequestMapping(value = "/requests/cancel/{id}")
 	public String removeDonationRequest(@PathVariable("id") Long id) {
