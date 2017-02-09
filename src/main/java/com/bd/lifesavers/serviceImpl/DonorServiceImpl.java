@@ -59,12 +59,9 @@ public class DonorServiceImpl implements IDonorService {
 	
 	@Override
 	public void updatePassword(String password, Long id) {
-		System.out.println("id is :"+id +"and pwd :"+password);
 		Donor d=donorrepo.findOne(id);
 		d.setPassword(password);
-		System.out.println("pwd setted");
 		donorrepo.save(d);
-		System.out.println("done");
 	}
 
 

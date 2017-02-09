@@ -232,7 +232,7 @@ public class MemberController {
 	}
 	@RequestMapping(value = "/afterchange", method = RequestMethod.POST)
 	public String afterchangePassword(Model model , Donor donor, HttpServletRequest request ) {
-		System.out.println("**************888");
+		
 		 donor = donorService.getDonorById(tempId);
 		
 		 String username = donor.getUsername();
@@ -240,14 +240,12 @@ public class MemberController {
 		 
 		 
 		String rpassword = request.getParameter("password");
-		System.out.println(rpassword);
 		
 		if(dbpassword.equals(rpassword)){
 			String cpass = request.getParameter("confirmNewPassword");
-			System.out.println("hi");
 			
 			donorService.updatePassword(cpass, tempId);
-			return "redirect:/showDetails";
+			return "redirect:/logout";
 		}
 		
 		return "redirect:/changepassword";
