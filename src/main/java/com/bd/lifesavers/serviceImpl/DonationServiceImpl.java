@@ -55,4 +55,10 @@ public class DonationServiceImpl implements IDonationService {
 		donationRepo.save(d);
 		
 	}
+
+	@Override
+	public Donation getDonation(Long id) {
+		
+		return donationRepo.findOne(id);
+	}
 }

@@ -29,6 +29,7 @@ import com.bd.lifesavers.domain.Donation;
 import com.bd.lifesavers.domain.Donor;
 import com.bd.lifesavers.service.IDonationService;
 import com.bd.lifesavers.service.IDonorService;
+import com.bd.lifesavers.service.IEligibilityService;
 
 @SessionAttributes({ "donorID", "username" })
 
@@ -39,6 +40,8 @@ public class MemberController {
 	IDonorService donorService;
 	@Autowired
 	IDonationService donationService;
+	@Autowired
+	IEligibilityService eligibilityService;
 
 	// Admin part instead of admin controller
 	@RequestMapping(value = "/admin")
@@ -70,9 +73,8 @@ public class MemberController {
 	
 	@RequestMapping(value = "/requests/confirm/{id}")
 	public String updateDonationRequest(@PathVariable("id") Long id) {
-		System.out.println("begin");
 		donationService.updateDonation(id);
-		System.out.println("end");
+		eligibilityService.setEligibility(donationService.getDonation(id).getDonor().getEligible().getId());
 		return "redirect:/requests";
 	}
 	
