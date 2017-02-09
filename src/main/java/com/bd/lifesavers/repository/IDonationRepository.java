@@ -2,6 +2,7 @@ package com.bd.lifesavers.repository;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -16,6 +17,10 @@ public interface IDonationRepository extends CrudRepository<Donation, Long> {
 	
 	@Query("select d from Donation d where d.donor= :donor")
 	List<Donation> getDonationsByDonorId(@Param("donor") Donor donorId);
+	
+	/*@Modifying
+	@Query("UPDATE Donation d SET d.confirmed =1 WHERE d.id = :donor")
+	void updateDonationSetconfirmed(@Param("donor")Long donor);*/
 	
 	/*@Query("delete from Donation d where d.donor= :donor")
 	void removeByDonorId(@Param("donor")Donor donor);

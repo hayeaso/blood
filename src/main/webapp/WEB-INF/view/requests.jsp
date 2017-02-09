@@ -71,7 +71,7 @@
 								href="<c:url value='/requests/cancel/${donation.id}' />">Cancel</a>
 								<a
 								class="btn btn-primary"
-								href="<c:url value='/confirm/${donation.id}' />">Confirm</a></td>
+								href="<c:url value='/requests/confirm/${donation.id}' />">Confirm</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

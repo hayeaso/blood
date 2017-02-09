@@ -68,6 +68,14 @@ public class MemberController {
 		return "redirect:/requests";
 	}
 	
+	@RequestMapping(value = "/requests/confirm/{id}")
+	public String updateDonationRequest(@PathVariable("id") Long id) {
+		System.out.println("begin");
+		donationService.updateDonation(id);
+		System.out.println("end");
+		return "redirect:/requests";
+	}
+	
 	@RequestMapping(value = "/demands/cancel/{id}")
 	public String removeDonationDemands(@PathVariable("id") Long id) {
 		

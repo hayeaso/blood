@@ -46,4 +46,13 @@ public class DonationServiceImpl implements IDonationService {
 		donationRepo.delete(id);
 		
 	}
+
+	@Override
+	public void updateDonation(Long id) {
+		
+		Donation d =donationRepo.findOne(id);
+		d.setConfirmed(true);
+		donationRepo.save(d);
+		
+	}
 }
