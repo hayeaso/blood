@@ -49,6 +49,7 @@
 					<li><a href="demands">Demands</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
+				<li><a href="changepassword">Change Password</a></li>
 					<li><a href="logout">Logout</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->

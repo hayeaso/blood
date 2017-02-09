@@ -44,13 +44,13 @@
 			<div class="modal-body">
 				<div class="row">
 					<div class="well">
-						<form:form modelAttribute="updatePassword" class="form-horizontal">
+						<form  class="form-horizontal" action = "afterchange" method = "POST">
 							<div class="form-group">
 								<div class="col-lg-4">
 									<label class="control-label" for="oldPassword">Old Password</label>
 								</div>
 								<div class="col-lg-8">
-									<form:input id="oldPassword" path="oldPassword" placeholder="Please enter Old Password" type="text" class="form-control" value=""/>
+									<input id="oldPassword" type="password" class="form-control" value="" name = "password"/>
 								<span class="help-block"></span>
 								</div>								
 							</div>
@@ -60,7 +60,7 @@
 									<label class="control-label" for="newPassword">New Password</label>
 								</div>
 								<div class="col-lg-8">
-									<form:input id="newPassword" path="newPassword" placeholder="Please enter New Password" type="text" class="form-control" value=""/>
+									<input id="newPassword"  type="password" class="form-control" value=""/>
 								<span class="help-block"></span>
 								</div>								
 							</div>
@@ -70,15 +70,35 @@
 									<label class="control-label" for="confirmNewPassword">Confirm New Password</label>
 								</div>
 								<div class="col-lg-8">
-									<form:input id="confirmNewPassword" path="confirmNewPassword" placeholder="Please Confirm New Password" type="text" class="form-control" value=""/>
+									<input  type="password" class="form-control" value="" id = "confirmNewPassword" name = "confirmNewPassword"/>
 								<span class="help-block"></span>
 								</div>								
 							</div>
-						</form:form>
+							<input type="submit" id="btnAdd" class="btn btn-info btn-block"	value="Change Password" onclick="return Validate()"> <span class="help-block"></span>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		function Validate() {
+			var password = document.getElementById("newPassword").value;
+			var confirmPassword = document.getElementById("confirmNewPassword").value;
+			debugger;
+			if (password != confirmPassword) {
+				alert("Passwords do not match.");
+				return false;
+			}
+			else{
+				var x= confirm("You will be logged out. Are you sure?");
+				if(x == true){
+					return true;
+				}
+				return false;
+			}
+			
+		}
+	</script>
 </body>
 </html>

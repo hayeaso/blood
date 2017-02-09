@@ -223,5 +223,35 @@ public class MemberController {
 		return "redirect:/";
 
 	}
+	@RequestMapping(value = "/changepassword", method = RequestMethod.GET)
+	public String changePassword(Model model , Donor donor ) {
+		
+		
+		return "updatepassword";
+
+	}
+	@RequestMapping(value = "/afterchange", method = RequestMethod.POST)
+	public String afterchangePassword(Model model , Donor donor, HttpServletRequest request ) {
+		System.out.println("**************888");
+		 donor = donorService.getDonorById(tempId);
+		
+		 String username = donor.getUsername();
+		 String dbpassword = donorService.getPassword(username);
+		 
+		 
+		String rpassword = request.getParameter("password");
+		System.out.println(rpassword);
+		
+		if(dbpassword.equals(rpassword)){
+			String cpass = request.getParameter("confirmNewPassword");
+			System.out.println("hi");
+			
+			donorService.updatePassword(cpass, tempId);
+			return "redirect:/showDetails";
+		}
+		
+		return "redirect:/changepassword";
+
+	}
 
 }
