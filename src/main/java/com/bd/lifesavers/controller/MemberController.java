@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bd.lifesavers.domain.BloodGroup;
@@ -177,5 +178,12 @@ public class MemberController {
 		return "redirect:/admin";
 
 	} 
+	
+	@RequestMapping(value="/logout",method = RequestMethod.GET)
+	public String logoutClicked(SessionStatus status){
+		status.setComplete();
+		return "redirect:/";
+		
+	}
 
 }
