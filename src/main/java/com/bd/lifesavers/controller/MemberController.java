@@ -30,7 +30,7 @@ import com.bd.lifesavers.domain.Donor;
 import com.bd.lifesavers.service.IDonationService;
 import com.bd.lifesavers.service.IDonorService;
 
-@SessionAttributes({"donorID","username"})
+@SessionAttributes({ "donorID", "username" })
 
 @Controller
 public class MemberController {
@@ -39,34 +39,43 @@ public class MemberController {
 	IDonorService donorService;
 	@Autowired
 	IDonationService donationService;
-	
-	
-	
-	//Admin part instead of admin controller
+
+	// Admin part instead of admin controller
 	@RequestMapping(value = "/admin")
-	public String admin(Model model, Donor donor){
+	public String admin(Model model, Donor donor) {
 		model.addAttribute("donors", donorService.getDonors());
 		return "admin";
 	}
+
 	@RequestMapping(value = "/remove/{id}")
-	public String removeMember(@PathVariable("id") Long id){
+	public String removeMember(@PathVariable("id") Long id) {
+
+		List<Donation> donations = donationService.getDonationsByDonorId(donorService.getDonorById(id));
+		List<Donation> donations2 = donationService.getDonationsByReceiverId(donorService.getDonorById(id));
+
+		donationService.removeByMemberId(donations, donations2);
+		System.out.println("done of Donations");
 		donorService.remove(id);
+		System.out.println("done of Donors");
 		return "redirect:/admin";
 	}
-	//**************************Admin part instead of admin controller
+
+	// **************************Admin part instead of admin controller
 	@RequestMapping(value = "/requests")
-	public String requests(Model model, Donor donor){
-		model.addAttribute("donors", donationService.getReceiversByDonorId(donorService.getDonorById(tempId)));
+	public String requests(Model model, Donor donor) {
+		List<Donation> donations = donationService.getDonationsByDonorId(donorService.getDonorById(tempId));
+		model.addAttribute("donations", donations);
 		return "requests";
 	}
-	
+
 	@RequestMapping(value = "/demands")
-	public String demands(Model model, Donor donor){
-		model.addAttribute("donors", donationService.getDonorsByReceiverId(donorService.getDonorById(tempId)));
+	public String demands(Model model, Donor donor) {
+
+		List<Donation> donations = donationService.getDonationsByReceiverId(donorService.getDonorById(tempId));
+		model.addAttribute("donations", donations);
 		return "demands";
 	}
-	
-	
+
 	@RequestMapping(value = "/members", method = RequestMethod.GET)
 	public @ResponseBody List<Donor> message(@RequestParam("name") BloodGroup name, Model model) {
 
@@ -119,9 +128,9 @@ public class MemberController {
 
 		return "redirect:/showDetails";
 	}
-	
+
 	@RequestMapping(value = "/showDetails", method = RequestMethod.GET)
-	public String showDetails(@ModelAttribute("person")Donor person, Model model) {
+	public String showDetails(@ModelAttribute("person") Donor person, Model model) {
 		return "showDetails";
 	}
 
@@ -141,15 +150,15 @@ public class MemberController {
 		}
 		tempId = donorService.getIdByUsername(username);
 		model.addAttribute("username", username);
-		model.addAttribute("donorID", tempId );
+		model.addAttribute("donorID", tempId);
 		return "redirect:/showDetails";
 	}
 
 	@RequestMapping(value = "/profile/{id}", method = RequestMethod.GET)
 	public String myProfile(@ModelAttribute("donor") Donor donor, @PathVariable("id") long id, Model model) {
 
-		donor= donorService.getDonorById(id);
-		Date date =donor.getRegistrationDate();
+		donor = donorService.getDonorById(id);
+		Date date = donor.getRegistrationDate();
 		model.addAttribute("registrationDate", date);
 		model.addAttribute("donor", donor);
 		model.addAttribute("id", id);
@@ -158,32 +167,33 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/profile", method = RequestMethod.POST)
-	public String afterEdit(@Valid @ModelAttribute("donor") Donor donor, BindingResult bindingresult, Model model, HttpServletRequest request) {
-		
-		if(bindingresult.hasErrors()){
+	public String afterEdit(@Valid @ModelAttribute("donor") Donor donor, BindingResult bindingresult, Model model,
+			HttpServletRequest request) {
+
+		if (bindingresult.hasErrors()) {
 			return "editprofile";
 		}
-		String registrationDate =  request.getParameter("registrationDate");
+		String registrationDate = request.getParameter("registrationDate");
 		DateFormat format = new SimpleDateFormat("yyyy-M-dd");
-		
+
 		try {
 			Date date = format.parse(registrationDate);
 			donor.setRegistrationDate(date);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
+
 		donorService.updateDonor(donor);
 
 		return "redirect:/admin";
 
-	} 
-	
-	@RequestMapping(value="/logout",method = RequestMethod.GET)
-	public String logoutClicked(SessionStatus status){
+	}
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logoutClicked(SessionStatus status) {
 		status.setComplete();
 		return "redirect:/";
-		
+
 	}
 
 }

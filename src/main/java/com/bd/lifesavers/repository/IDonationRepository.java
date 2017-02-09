@@ -11,10 +11,15 @@ import com.bd.lifesavers.domain.Donation;
 import com.bd.lifesavers.domain.Donor;
 @Repository
 public interface IDonationRepository extends CrudRepository<Donation, Long> {
-	@Query("select d.receiver from Donation d where d.donor= :donor")	
-	List <Donor> getReceiversByDonorId(@Param("donor")Donor donor);
+	@Query("select d from Donation d where d.receiver= :receiver")
+	 List<Donation> getDonationsByReceiverId(@Param("receiver") Donor receiver);
 	
-	@Query("select d.donor from Donation d where d.receiver= :receiver")
-	List<Donor> getDonorsByReceiverId(@Param("receiver") Donor receiver);
-
+	@Query("select d from Donation d where d.donor= :donor")
+	List<Donation> getDonationsByDonorId(@Param("donor") Donor donorId);
+	
+	/*@Query("delete from Donation d where d.donor= :donor")
+	void removeByDonorId(@Param("donor")Donor donor);
+	
+	@Query("delete from Donation d where d.receiver= :receiver")
+	void removeByReceiverId(@Param("receiver")Donor receiver);*/
 }

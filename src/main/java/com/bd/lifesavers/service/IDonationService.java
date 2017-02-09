@@ -13,7 +13,11 @@ import com.bd.lifesavers.domain.Donor;
 public interface IDonationService {
 	public void save(Donation donation);
 
-	public List<Donor> getReceiversByDonorId(Donor donor);
+	public List<Donation> getDonationsByReceiverId(Donor receiverId);
 
-	public List<Donor> getDonorsByReceiverId(Donor receiverId);
+	public List<Donation> getDonationsByDonorId(Donor donorById);
+
+	
+
+	public void removeByMemberId(List<Donation> donations, List<Donation> donations2);
 }

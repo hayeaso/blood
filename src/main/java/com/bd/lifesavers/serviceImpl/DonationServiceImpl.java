@@ -22,14 +22,25 @@ public class DonationServiceImpl implements IDonationService {
 	}
 
 	@Override
-	public List<Donor> getReceiversByDonorId(Donor donor) {
-
-		return donationRepo.getReceiversByDonorId(donor);
+	public List<Donation> getDonationsByReceiverId(Donor receiver) {
+		return donationRepo.getDonationsByReceiverId(receiver);
 	}
 
 	@Override
-	public List<Donor> getDonorsByReceiverId(Donor receiver) {
-		return donationRepo.getDonorsByReceiverId(receiver);
+	public List<Donation> getDonationsByDonorId(Donor donorId) {
+		return donationRepo.getDonationsByDonorId(donorId);
 	}
 
+	@Override
+	public void removeByMemberId(List<Donation> donations, List<Donation> donations2) {
+
+		for (Donation donation : donations) {
+			System.out.println("donation Id :" + donation.getId());
+			donationRepo.delete(donation);
+		}
+
+		for (Donation donation : donations2) {
+			donationRepo.delete(donation);
+		}
+	}
 }
