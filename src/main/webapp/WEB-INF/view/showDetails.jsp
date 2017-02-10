@@ -39,18 +39,20 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Life Savers</a>
+				<a class="navbar-brand" href="#"><spring:message code="lifesavers" text="Life Savers"/></a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li><a href="profile/<%= session.getAttribute("donorID") %>">Edit Profile</a></li>
-					<li><a href="requests">Requests</a></li>
-					<li><a href="demands">Demands</a></li>
+					<li><a href="profile/<%= session.getAttribute("donorID") %>">
+					<spring:message code="editProfile" text="Edit Profile"/></a></li>
+					<li><a href="requests"><spring:message code="request" text="Request"/></a></li>
+					<li><a href="demands"><spring:message code="demand" text="Demand"/></a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-				<li><a href="changepassword">Change Password</a></li>
-					<li><a href="logout">Logout</a></li>
+				<li><a href="changepassword"><spring:message code="changePassword" text="Change Password"/></a></li>
+					<li><a href="logout"><spring:message code="logout" text="Logout"/></a></li>
+					<li> <a href="?language=en_US">English</a>| <a href="?language=fr_FR">French</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>

@@ -63,6 +63,17 @@ public class DonorServiceImpl implements IDonorService {
 		d.setPassword(password);
 		donorrepo.save(d);
 	}
+	@Override
+	public boolean checkusername(String username) {
+		List<Donor> dbusername = (List<Donor>) donorrepo.findAll();
+		for(Donor dbuser:dbusername){
+			if(username.equals(dbuser.getUsername())){
+				return false;
+			}
+			
+		}
+		return true;
+	}
 
 
 }

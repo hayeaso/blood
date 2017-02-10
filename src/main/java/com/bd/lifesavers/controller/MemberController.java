@@ -130,7 +130,12 @@ public class MemberController {
 			System.out.println("it has errors");
 			return "register";
 		}
-
+		System.out.println("i am the user retreieved" + donor.getUsername());
+		
+		if(!donorService.checkusername(donor.getUsername())){
+			System.out.println("They fucking have the same username");
+			return "redirect:/register";
+		}
 		donorService.saveDonor(donor);
 		redirectattributes.addFlashAttribute(donor);
 

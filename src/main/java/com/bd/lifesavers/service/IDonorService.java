@@ -29,5 +29,7 @@ public void saveDonor(Donor donor);
 	public Long getIdByUsername(String username);
 	
 	public void updatePassword(String password , Long id);
+	
+	public boolean checkusername(String username);
 
 }

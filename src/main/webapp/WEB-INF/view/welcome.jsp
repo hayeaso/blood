@@ -4,6 +4,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -22,18 +23,22 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Life Savers</a>
+				<a class="navbar-brand" href="#"><spring:message code="lifesavers" text="Life Savers"/></a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#contact">Contact</a></li>
+					<li class="active"><a href="#">
+					<spring:message code="home" text="Home"/></a></li>
+					<li><a href="#about"><spring:message code="about" text="About"/></a></li>
+					<li><a href="#contact"><spring:message code="contact" text="Contact"/></a></li>
 					
 				</ul>
+				<spring:message code="allahhabibi" text=""/>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="register">Sign Up</a></li>
-					<li><a href="login">Sign In</a></li>
+					
+					<li><a href="register"><spring:message code="signup" text="Sign Up"/></a></li>
+					<li><a href="login"><spring:message code="signin" text="Sign in"/></a></li>
+					<li> <a href="?language=en_US">English</a>| <a href="?language=ar">Arabic</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
