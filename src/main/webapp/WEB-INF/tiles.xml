@@ -16,5 +16,49 @@
 		<put-attribute name="admin_body" value="/WEB-INF/view/admin_body.jsp" />
 		<put-attribute name="admin_footer" value="/WEB-INF/view/admin_footer.jsp" />
 	</definition>
+	
+	<definition name="MemberTemplate" template="/WEB-INF/view/showDetails.jsp">
+		<put-attribute name="user_title" value="" />
+		<put-attribute name="user_header" value="" />
+		<put-attribute name="user_search" value="" />
+		<put-attribute name="user_body" value="" />
+		<put-attribute name="user_footer" value="" />
+	</definition>
+	
+	<definition name="showDetails" extends="MemberTemplate">
+		<put-attribute name="user_title" value="Dashboard" />
+		<put-attribute name="user_header" value="/WEB-INF/view/user_header.jsp" />
+		<put-attribute name="user_search" value="/WEB-INF/view/user_search.jsp" />
+		<put-attribute name="user_body" value="/WEB-INF/view/user_body.jsp" />
+		<put-attribute name="user_footer" value="/WEB-INF/view/user_footer.jsp" />
+	</definition>
+	
+	<definition name="requests" extends="MemberTemplate">
+		<put-attribute name="user_title" value="Requests" />
+		<put-attribute name="user_header" value="/WEB-INF/view/user_header.jsp" />
+		<put-attribute name="user_body" value="/WEB-INF/view/requests.jsp" />
+		<put-attribute name="user_footer" value="/WEB-INF/view/user_footer.jsp" />
+	</definition>
+	
+	<definition name="demands" extends="MemberTemplate">
+		<put-attribute name="user_title" value="Demands" />
+		<put-attribute name="user_header" value="/WEB-INF/view/user_header.jsp" />
+		<put-attribute name="user_body" value="/WEB-INF/view/demands.jsp" />
+		<put-attribute name="user_footer" value="/WEB-INF/view/user_footer.jsp" />
+	</definition>
+	
+	<definition name="editprofile" extends="MemberTemplate">
+		<put-attribute name="user_title" value="Edit Profile" />
+		<put-attribute name="user_header" value="/WEB-INF/view/user_header.jsp" />
+		<put-attribute name="user_body" value="/WEB-INF/view/editprofile.jsp" />
+		<put-attribute name="user_footer" value="/WEB-INF/view/user_footer.jsp" />
+	</definition>
+	
+	<definition name="updatepassword" extends="MemberTemplate">
+		<put-attribute name="user_title" value="Update Password" />
+		<put-attribute name="user_header" value="/WEB-INF/view/user_header.jsp" />
+		<put-attribute name="user_body" value="/WEB-INF/view/updatepassword.jsp" />
+		<put-attribute name="user_footer" value="/WEB-INF/view/user_footer.jsp" />
+	</definition>
 
 </tiles-definitions>

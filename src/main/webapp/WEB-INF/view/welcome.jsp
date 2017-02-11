@@ -38,7 +38,15 @@
 					
 					<li><a href="register"><spring:message code="signup" text="Sign Up"/></a></li>
 					<li><a href="login"><spring:message code="signin" text="Sign in"/></a></li>
-					<li> <a href="?language=en_US">English</a>| <a href="?language=ar">Arabic</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Language <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="?language=en_US">English</a></li>
+							<li><a href="?language=ne_NP">Nepali</a></li>
+							<li><a href="?language=ar">Arabic</a></li>
+							<li><a href="?language=fr_FR">French</a></li>
+						</ul>
+					</li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
