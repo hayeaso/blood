@@ -118,7 +118,13 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>3.2.8.RELEASE</version>
 		</dependency>
-
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-extras</artifactId>
+			<version>3.0.3</version>
+		</dependency>
 
 	</dependencies>
 	<properties>
