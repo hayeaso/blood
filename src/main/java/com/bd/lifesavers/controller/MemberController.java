@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -30,11 +32,18 @@ import com.bd.lifesavers.domain.Donor;
 import com.bd.lifesavers.service.IDonationService;
 import com.bd.lifesavers.service.IDonorService;
 import com.bd.lifesavers.service.IEligibilityService;
+import com.bd.lifesavers.serviceImpl.CrunchifyEmailAPI;
+
 
 @SessionAttributes({ "donorID", "username" })
 
 @Controller
 public class MemberController {
+	
+	
+	@Autowired
+	CrunchifyEmailAPI crunchifyEmailAPI;
+	
 	Long tempId;
 	@Autowired
 	IDonorService donorService;
@@ -130,7 +139,7 @@ public class MemberController {
 			System.out.println("it has errors");
 			return "register";
 		}
-		System.out.println("i am the user retreieved" + donor.getUsername());
+		
 		
 		if(!donorService.checkusername(donor.getUsername())){
 			System.out.println("They fucking have the same username");
@@ -138,6 +147,22 @@ public class MemberController {
 		}
 		donorService.saveDonor(donor);
 		redirectattributes.addFlashAttribute(donor);
+		
+		String receivedEmail = donor.getEmail();
+		
+		// @Service("crunchifyEmail") <-- same annotation you specified in CrunchifyEmailAPI.java
+		
+		String toAddr = receivedEmail;
+		String fromAddr = "ranjansparrow@gmail.com";
+ 
+		// email subject
+		String subject = "Blood Donation";
+ 
+		// email body
+		String body = "Welcome to the Blood Donation Program. Now you can easily donate and receive the blood. -- Life Savers";
+		System.out.println(" I am here !!  "+ toAddr);
+		crunchifyEmailAPI.crunchifyReadyToSendEmail(toAddr, fromAddr, subject, body);
+		
 
 		return "redirect:/login";
 	}
