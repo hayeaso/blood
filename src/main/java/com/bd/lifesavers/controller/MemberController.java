@@ -141,10 +141,9 @@ public class MemberController {
 		}
 		
 		
-		if(!donorService.checkusername(donor.getUsername())){
-			System.out.println("They fucking have the same username");
+		/*if(!donorService.checkusername(donor.getUsername())){
 			return "redirect:/register";
-		}
+		}*/
 		donorService.saveDonor(donor);
 		redirectattributes.addFlashAttribute(donor);
 		
