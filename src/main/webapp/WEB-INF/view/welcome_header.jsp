@@ -18,7 +18,10 @@
 					<li><a href="#contact"><spring:message code="contact" text="Contact"/></a></li>
 					
 				</ul>
-				<spring:message code="allahhabibi" text=""/>
+				<ul class="nav navbar-nav" style="font-size: 30px;">
+					<spring:message code="allahhabibi" text=""/>
+				</ul>
+				
 				<ul class="nav navbar-nav navbar-right">
 					
 					<li><a href="register"><spring:message code="signup" text="Sign Up"/></a></li>
