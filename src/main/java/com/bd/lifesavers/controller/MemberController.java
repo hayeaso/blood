@@ -122,7 +122,7 @@ public class MemberController {
 		return "Your Request is Sent!";
 	}
 
-	@RequestMapping("/")
+	@RequestMapping(value ={ "/","/home"})
 	public String welcome() {
 		return "welcome";
 	}

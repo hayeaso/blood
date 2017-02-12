@@ -27,7 +27,8 @@
 				</h4>
 				or go back to our <a href="/">main site</a>.
 			</div>
-			<a href="?language=en_US">English</a>| <a href="?language=ne_NP">Nepali</a>
+			<a href="?language=en_US">English</a>| <a href="?language=ne_NP">Nepali </a>| <a href="?language=ar">Arabic</a>
+			| <a href="?language=fr_FR">French </a>
 			<div class="modal-body">
 				<div class="row">
 					<div class="well">

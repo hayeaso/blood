@@ -60,5 +60,21 @@
 		<put-attribute name="user_body" value="/WEB-INF/view/updatepassword.jsp" />
 		<put-attribute name="user_footer" value="/WEB-INF/view/user_footer.jsp" />
 	</definition>
-
+	
+	<definition name = "WelcomeTemplate" template = "/WEB-INF/view/welcome.jsp" >
+		<put-attribute name="welcome_title" value="" />
+		<put-attribute name="welcome_header" value="" />
+		<put-attribute name="welcome_body" value="" />
+		<put-attribute name="welcome_footer" value="" />
+	</definition>
+	
+	<definition name="welcome" extends="WelcomeTemplate">
+		<put-attribute name="welcome_title" value="Welcome" />
+		<put-attribute name="welcome_header" value="/WEB-INF/view/welcome_header.jsp" />
+		<put-attribute name="welcome_body" value="/WEB-INF/view/welcomebody.jsp" />
+		<put-attribute name="welcome_footer" value="/WEB-INF/view/user_footer.jsp" />
+	</definition>
+	
+	
+	
 </tiles-definitions>

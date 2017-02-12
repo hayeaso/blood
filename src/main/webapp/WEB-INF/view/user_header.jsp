@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <nav class="navbar navbar-default navbar-static-top">
@@ -12,11 +13,11 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Life Savers</a>
+			<a class="navbar-brand" href="home">Life Savers</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
+				<li class="active"><a href="home"><spring:message code="home" text="Home"/></a></li>
 				<li><a href="profile/<%= session.getAttribute("donorID") %>"><spring:message code="editProfile" text="Edit Profile"/></a></li>
 				<li><a href="requests"><spring:message code="request" text="Request"/></a></li>
 				<li><a href="demands"><spring:message code="demand" text="Demand"/></a></li>
